@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<LinearLayout
+    android:layout_margin="5dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:id="@+id/img_my"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        tools:src="@color/cardview_dark_background"/>
+    <TextView
+        android:id="@+id/MovieName_my"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Movie Name"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:layout_marginLeft="30dp"
+        />
+    <TextView
+        android:id="@+id/rating_my"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Rating"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:layout_marginLeft="30dp"
+        />
+</LinearLayout>
+
+</LinearLayout>

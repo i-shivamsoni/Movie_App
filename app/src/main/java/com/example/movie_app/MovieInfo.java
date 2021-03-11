@@ -15,7 +15,8 @@ public class MovieInfo {
         this.releaseYear = releaseYear;
         this.genre = genre;
     }
-    public MovieInfo(){
+
+    public MovieInfo() {
 
     }
 
