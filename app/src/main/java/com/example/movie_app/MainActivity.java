@@ -29,17 +29,15 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     ArrayList<MovieInfo> movieinfo;
-    ArrayAdapter adapter;
+    ListView listv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        connecttoServer();
+        listv = findViewById(R.id.lstv);
         movieinfo = new ArrayList<MovieInfo>();
-        adapter = new MyAdapter();
-        ListView listv = findViewById(R.id.lstv);
-        listv.setAdapter(adapter);
+        connecttoServer();
         Log.d("yay", "onCreate: popo");
     }
 
@@ -81,6 +79,8 @@ public class MainActivity extends AppCompatActivity {
 //                        }
                         movieinfo.add(mi);
                     }
+                    MyAdapter adapter = new MyAdapter();
+                    listv.setAdapter(adapter);
                     Log.d("TAG", "onResponse: finish");
 
                 } catch (JSONException e) {
@@ -99,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
         req.add(request); // It fires the request
     }
 
-    class MyAdapter extends ArrayAdapter {
+    class MyAdapter extends ArrayAdapter<MovieInfo> {
 
         public MyAdapter() {
             super(MainActivity.this, R.layout.my_layout, movieinfo);
@@ -108,6 +108,7 @@ public class MainActivity extends AppCompatActivity {
         @NonNull
         @Override
         public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+            Log.d("TAG","IN MYADAPTER");
             View v = getLayoutInflater().inflate(R.layout.my_layout, null);
             TextView mname = v.findViewById(R.id.MovieName_my);
             ImageView avatar = v.findViewById(R.id.img_my);
@@ -117,6 +118,7 @@ public class MainActivity extends AppCompatActivity {
             mname.setText(obj.getTitle());
             rating.setText(obj.getRating() + "");
             Picasso.with(MainActivity.this).load(obj.getImage()).into(avatar);
+            Log.d("TAG",obj.getTitle());
             return v;
         }
     }
